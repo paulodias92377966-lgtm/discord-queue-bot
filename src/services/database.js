@@ -82,8 +82,6 @@ export async function initDatabase() {
   `);
 
   // Clear stale data on startup
-  db.run('DELETE FROM active_tests');
-  db.run('DELETE FROM queue WHERE status = ?', ['testing']);
   db.run('DELETE FROM active_testers');
 
   saveDatabase();
