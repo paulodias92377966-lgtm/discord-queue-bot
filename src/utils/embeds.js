@@ -59,7 +59,7 @@ export function createQueueEmbed(queueList, currentTest, isOpen, activeTesters, 
   } else {
     embed
       .setColor('#ed4245')
-      .setTitle(region + ' Waitlist')
+      .setTitle('Waitlist')
       .setDescription(
         '**Testers off-line**\n\n' +
         'Nenhum testador disponivel no momento.\nVolte mais tarde!'
