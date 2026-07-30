@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: discord-queue-bot
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: CLIENT_ID
+        sync: false
+      - key: GUILD_ID
+        sync: false
+      - key: TESTER_ROLE_ID
+        sync: false
+      - key: FILA_CHANNEL_ID
+        sync: false
+      - key: RESULTS_CHANNEL_ID
+        sync: false
+      - key: REQUEST_CHANNEL_ID
+        sync: false
