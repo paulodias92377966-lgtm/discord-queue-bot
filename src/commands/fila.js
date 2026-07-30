@@ -411,7 +411,7 @@ async function updateFilaEmbed(client) {
     }
   } else {
     if (botMessage) {
-      await botMessage.edit({ embeds: [embed], components: [] });
+      await botMessage.edit({ content: '', embeds: [embed], components: [] });
     } else {
       await filaChannel.send({ embeds: [embed] });
     }
