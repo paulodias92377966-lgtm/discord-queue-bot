@@ -248,6 +248,12 @@ async function handleProximo(interaction, client) {
       reason: 'Teste de ' + next.username
     });
 
+    await evalChannel.permissionOverwrites.edit(guild.roles.everyone.id, {
+      ViewChannel: false,
+      SendMessages: false,
+      ReadMessageHistory: false
+    });
+
     await evalChannel.permissionOverwrites.edit(next.user_id, {
       ViewChannel: true,
       SendMessages: true,
