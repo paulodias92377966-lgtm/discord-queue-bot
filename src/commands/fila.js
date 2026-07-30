@@ -74,7 +74,7 @@ export const filaCommand = {
   async execute(interaction, client) {
     const subcommand = interaction.options.getSubcommand();
 
-    if (subcommand !== 'abrir' && subcommand !== 'fechar') {
+    if (subcommand !== 'abrir' && subcommand !== 'fechar' && subcommand !== 'finalizar') {
       if (!isQueueOpen()) {
         return interaction.reply({ content: 'A fila esta fechada!', ephemeral: true });
       }
@@ -115,6 +115,9 @@ async function handleFechar(interaction, client) {
   if (!isQueueOpen()) {
     return interaction.reply({ content: 'A fila ja esta fechada!', ephemeral: true });
   }
+
+  const { runQuery } = await import('../services/database.js');
+  runQuery('DELETE FROM queue WHERE status = ?', ['waiting']);
 
   setQueueOpen(false);
   removeActiveTester(interaction.user.id);
