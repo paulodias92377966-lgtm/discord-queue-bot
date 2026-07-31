@@ -61,7 +61,7 @@ async function setupFilaChannel(client) {
     if (config.waitlistRoleId) {
       await filaChannel.permissionOverwrites.edit(config.waitlistRoleId, {
         ViewChannel: true,
-        SendMessages: true,
+        SendMessages: false,
         ReadMessageHistory: true
       });
     }
