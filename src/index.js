@@ -4,8 +4,14 @@ import { initDatabase } from './services/database.js';
 import { filaCommand } from './commands/fila.js';
 import { onReady } from './events/ready.js';
 import { onInteraction } from './events/interactionCreate.js';
+import { createServer } from 'http';
 
 async function main() {
+  createServer((req, res) => {
+    res.writeHead(200);
+    res.end('Bot online');
+  }).listen(process.env.PORT || 3000);
+
   await initDatabase();
 
   const client = new Client({
