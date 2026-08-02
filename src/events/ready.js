@@ -75,7 +75,7 @@ async function setupFilaChannel(client) {
   const activeTesters = getAllActiveTesters().map(t => t.tester_id);
 
   const embed = createQueueEmbed(queueList, currentTest, isOpen, activeTesters);
-  const roleMention = '<@&' + config.waitlistRoleId + '>';
+  const roleMention = '@here';
 
   const messages = await filaChannel.messages.fetch({ limit: 10 });
   const existingMessage = messages.find(m => m.author.id === client.user.id && m.embeds.length > 0);
